@@ -12,5 +12,5 @@ Scripts `export_models.py` (should run from Blender) and `export_images.py` (sho
 blender --background --python export_models.py
 
 # kritarunner takes a module name, so we have to add the current folder to the module path
-env PYTHONPATH=. kritarunner -s export_images.py
+env PYTHONPATH=. kritarunner -s export_images
 ```
