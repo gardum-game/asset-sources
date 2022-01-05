@@ -1,0 +1,8 @@
+# Blender backup files
+*.blend[1-9]*
+
+# Python cache
+__pycache__
+
+# Krita backup files
+*~
