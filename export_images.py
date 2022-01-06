@@ -12,7 +12,11 @@ def export_file(filename, output_path):
     if size_suffix:
         filename = Path(filename.parent, fixed_filename + filename.suffix)
         x, separator, y, = size_suffix.partition('x')
-        document.scaleImage(int(x), int(y), int(document.xRes()), int(document.yRes()), 'Hermite')
+        document.scaleImage(int(x),
+                            int(y),
+                            int(document.xRes()),
+                            int(document.yRes()),
+                            'Hermite')
 
     output_filename = str(output_path / filename.with_suffix('.png'))
     document.setBatchmode(True)

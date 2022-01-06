@@ -13,8 +13,9 @@ def remove_extra_objects():
 
     # Select object to delete them later
     for object in bpy.data.objects:
-        if (object.type != 'MESH' and object.type != 'ARMATURE') or object.name.endswith('_hp'):
-            if object.hide_get() == True:
+        if (object.type != 'MESH' and object.type != 'ARMATURE') or \
+                object.name.endswith('_hp'):
+            if object.hide_get():
                 object.hide_set(False)
             print('Deleting: ' + object.name)
             object.select_set(True)
@@ -31,7 +32,9 @@ def export_file(filename, output_path):
     parent_folder.mkdir(parents=True, exist_ok=True)
 
     output_filename = str(output_path / filename.with_suffix('.glb'))
-    bpy.ops.export_scene.gltf(filepath=output_filename, export_apply=True, export_materials='PLACEHOLDER')
+    bpy.ops.export_scene.gltf(filepath=output_filename,
+                              export_apply=True,
+                              export_materials='PLACEHOLDER')
 
 
 output_path = Path(os.getenv('GARDUM_PATH', '../gardum'))
