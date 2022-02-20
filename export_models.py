@@ -33,8 +33,7 @@ def export_file(filename, output_path):
 
     output_filename = str(output_path / filename.with_suffix('.glb'))
     bpy.ops.export_scene.gltf(filepath=output_filename,
-                              export_apply=True,
-                              export_materials='PLACEHOLDER')
+                              export_apply=True)
 
 
 output_path = Path(os.getenv('GARDUM_PATH', '../gardum'))
