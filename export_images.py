@@ -4,8 +4,10 @@ from pathlib import Path
 
 
 def export_file(filename, output_path):
+    output_folder = output_path / filename.parent
+    output_folder.mkdir(parents=True, exist_ok=True)
+
     document = Krita.instance().openDocument(str(filename))
-    output_path.mkdir(parents=True, exist_ok=True)
 
     # Resize the image if it contains a special suffix.
     fixed_filename, separator, size_suffix = filename.stem.rpartition('-')
